@@ -18,11 +18,9 @@ eval:
 	echo "## Model Metrics" > report.md
 	cat Results/metrics.txt >> report.md
 	
-	echo "\n## Model Performance" >> report.md
-	echo "Model performance metrics are on the plot below." >> report.md
+	echo "\n## Confusion Metrics Plot" >> report.md
 	
-	cml comment ![confusion matrix](Results/model_results.png) --md >> report.md
-	
+	echo "![confusion matrix](Results/model_results.png)" >> report.md
 	cml comment create report.md
 
 add-remote: 
