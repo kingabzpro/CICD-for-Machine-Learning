@@ -21,7 +21,7 @@ eval:
 	echo "\n## Model Performance" >> report.md
 	echo "Model performance metrics are on the plot below." >> report.md
 	
-	cml-publish Results/model_results.png --md >> report.md
+	cml comment ![confusion matrix](Results/model_results.png) --md >> report.md
 	
 	cml comment create report.md
 
