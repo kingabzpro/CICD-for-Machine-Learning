@@ -2,5 +2,4 @@ pandas
 scikit-learn
 numpy
 matplotlib
-skops
 gradio
