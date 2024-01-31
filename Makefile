@@ -23,7 +23,7 @@ eval:
 	
 	cml-publish Results/model_results.png --md >> report.md
 	
-	cml-send-comment report.md
+	cml comment create report.md
 
 add-remote: 
 	git remote add space https://kingabzpro:$HF@huggingface.co/spaces/kingabzpro/<app>
