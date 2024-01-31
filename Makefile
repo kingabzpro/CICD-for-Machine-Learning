@@ -21,7 +21,7 @@ eval:
 	echo "\n## Confusion Metrics Plot" >> report.md
 	
 	echo "![confusion matrix](./Results/model_results.png)" >> report.md
-	cml comment create --publish report.md
+	cml comment create report.md
 
 add-remote: 
 	git remote add space https://kingabzpro:$HF@huggingface.co/spaces/kingabzpro/<app>
