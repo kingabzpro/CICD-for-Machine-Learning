@@ -24,8 +24,5 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: make eval
       - name: Update Branch
-        run: |
-          git config --global user.name kingabzpro
-          git config --global user.email 1abid@duck.com
-          git commit -am "Update with new results"
-          git push -u origin update
+        run: make update-branch
+          
