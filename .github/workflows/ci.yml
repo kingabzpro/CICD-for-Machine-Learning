@@ -27,6 +27,5 @@ jobs:
         run: |
           git config --global user.name kingabzpro
           git config --global user.email 1abid@duck.com
-          git remote add origin https://kingabzpro:${{ secrets.GITHUB_TOKEN }}github.com/kingabzpro/CICD-for-Machine-Learning.git
           git commit -am "Update with new results"
           git push -u origin update
