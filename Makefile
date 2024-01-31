@@ -36,6 +36,6 @@ update-branch:
 	git config --global user.name kingabzpro
 	git config --global user.email 1abid@duck.com
 	git commit -am "Update with new results"
-	git push --force origin update
-	
+	git push --force origin HEAD:update
+
 all: install lint format deploy
