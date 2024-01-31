@@ -3,5 +3,5 @@ scikit-learn
 numpy
 matplotlib
 gradio
-git+https://github.com/skops-dev/skops.git
+skops
 black

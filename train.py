@@ -66,5 +66,5 @@ plt.savefig("./Results/model_results.png", dpi=120)
 with open("./Results/metrics.txt", "w") as outfile:
     outfile.write(f"\nAccuracy = {round(accuracy, 2)}, F1 Score = {round(f1, 2)}")
 
-## Saving the model
+## Saving the model file
 sio.dump(pipe, "Model/drug_pipeline.skops")
