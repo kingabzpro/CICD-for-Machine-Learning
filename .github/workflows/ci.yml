@@ -23,5 +23,5 @@ jobs:
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: make eval
-      - name: Update-Branch
+      - name: Update Branch
         run: make update
