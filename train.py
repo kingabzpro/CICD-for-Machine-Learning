@@ -8,7 +8,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OrdinalEncoder, StandardScaler
 
 ## Loading the Data
-drug_df = pd.read_csv("Data/drug200.csv")
+drug_df = pd.read_csv("Data/drug.csv")
 drug_df = drug_df.sample(frac=1)
 
 ## Train Test Split
