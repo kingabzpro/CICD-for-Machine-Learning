@@ -12,8 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: iterative/setup-cml@v2
-        env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Install Packages
         run: make install
       - name: Format
@@ -21,4 +19,6 @@ jobs:
       - name: Train
         run: make train
       - name: Evaluation
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: make eval
