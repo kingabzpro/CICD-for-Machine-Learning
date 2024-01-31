@@ -51,10 +51,6 @@ f1 = f1_score(y_test, predictions, average="macro")
 
 print("Accuracy: ", str(round(accuracy, 2) * 100) + "%", "F1: ", round(f1, 2))
 
-## Write metrics to file
-with open("./Results/metrics.txt", "w") as outfile:
-    outfile.write(f"\nAccuracy = {round(accuracy, 2)}, F1 Score = {round(f1, 2)}")
-
 
 ## Confusion Matrix Plot
 import matplotlib.pyplot as plt
@@ -65,7 +61,11 @@ cm = confusion_matrix(y_test, predictions, labels=pipe.classes_)
 disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=pipe.classes_)
 disp.plot()
 plt.savefig("./Results/model_results.png", dpi=120)
-plt.show()
+
+## Write metrics to file
+with open("./Results/metrics.txt", "w") as outfile:
+    outfile.write(f"\nAccuracy = {round(accuracy, 2)}, F1 Score = {round(f1, 2)}")
+    outfile.write(f"\n##Confussion Matrix \n{cm}")
 
 ## Saving the model
 sio.dump(pipe, "Model/drug_pipeline.skops")
