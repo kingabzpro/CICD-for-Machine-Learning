@@ -25,8 +25,8 @@ jobs:
         run: make eval
       - name: Update Branch
         run: |
-          git config --global user.name ${{ secrets.USER_NAME }}
-          git config --global user.email ${{ secrets.USER_EMAIL }}
-          git remote add origin https://${{ secrets.USER_NAME }}:${{ secrets.GITHUB_TOKEN }}github.com/kingabzpro/CICD-for-Machine-Learning.git
+          git config --global user.name abid
+          git config --global user.email 1abid@duck.com
+          git remote add origin https://kingabzp:${{ secrets.GITHUB_TOKEN }}github.com/kingabzpro/CICD-for-Machine-Learning.git
           git commit -am "Update with new results"
           git push -u origin update
