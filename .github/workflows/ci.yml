@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: iterative/setup-cml@v2
       - env:
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Can use the default token for most functions
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Install Packages
         run: make install
       - name: Format
@@ -21,6 +21,4 @@ jobs:
       - name: Train
         run: make train
       - name: Evaluation
-        env:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: make eval
