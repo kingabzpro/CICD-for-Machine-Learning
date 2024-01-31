@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: iterative/setup-cml@v2
-      - env:
+        env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Install Packages
         run: make install
