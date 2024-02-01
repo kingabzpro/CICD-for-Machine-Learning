@@ -24,7 +24,7 @@ update-branch:
 	git push --force origin HEAD:update
 
 add-remote: 
-	git remote add space https://kingabzpro:$HF@huggingface.co/spaces/kingabzpro/Drug-Classification
+	git remote add space https://kingabzpro:$(HF)@huggingface.co/spaces/kingabzpro/Drug-Classification
 
 pull-push-hub: 
 	git pull origin update

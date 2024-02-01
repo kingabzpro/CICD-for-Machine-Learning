@@ -1,7 +1,9 @@
 name: Continuous Deployment
 on:
-  push:
-    branches: [ "update" ]
+  workflow_run:
+    workflows: ["Continuous Integration"]
+    types:
+      - completed
 
   workflow_dispatch:
 
@@ -14,4 +16,4 @@ jobs:
       - name: Deployment To Hugging Face
         env:
           HF: ${{ secrets.HF }}
-        run: make deploy
+        run: make deploy HF=$HF
