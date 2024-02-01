@@ -1,16 +1,3 @@
----
-title: Drug Classification
-emoji: 💊
-colorFrom: yellow
-colorTo: red
-sdk: gradio
-sdk_version: 4.16.0
-app_file: ./App/drug_app.py
-pinned: false
-license: apache-2.0
----
-
-
 # CICD-for-Machine-Learning
 [![CI](https://github.com/kingabzpro/CICD-for-Machine-Learning/actions/workflows/ci.yml/badge.svg)](https://github.com/kingabzpro/CICD-for-Machine-Learning/actions/workflows/ci.yml)
 [![Continuous Deployment](https://github.com/kingabzpro/CICD-for-Machine-Learning/actions/workflows/cd.yml/badge.svg)](https://github.com/kingabzpro/CICD-for-Machine-Learning/actions/workflows/cd.yml)

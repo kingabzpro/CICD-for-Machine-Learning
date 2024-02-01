@@ -23,16 +23,14 @@ update-branch:
 	git commit -am "Update with new results"
 	git push --force origin HEAD:update
 
-add-remote: 
-	git remote add space https://kingabzpro:$(HF)@huggingface.co/spaces/kingabzpro/Drug-Classification
+hf-login: 
+	pip install -U "huggingface_hub[cli]"
+	huggingface-cli login --token $(HF) --add-to-git-credential
 
-pull-push-hub: 
-	git pull origin update
-	git switch update
-	git lfs install
-	git lfs track "./Model/drug_pipeline.skops"
-	git push --force space main
+push-hub: 
+	huggingface-cli upload kingabzpro/Drug-Classification ./App --repo-type=space --commit-message="Sync App files"
+	huggingface-cli upload kingabzpro/Drug-Classification ./Model /Model --repo-type=space --commit-message="Sync Model"
 
-deploy: add-remote pull-push-hub
+deploy: hf-login push-hub
 
 all: install format train eval update-branch deploy
