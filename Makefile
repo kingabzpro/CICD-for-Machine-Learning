@@ -5,37 +5,32 @@ install:
 format:	
 	black *.py 
 
-lint:
-	pylint --disable=R,C --ignore-patterns=test_.*?py *.py mylib/*.py
-
-refactor: format lint
-
 train:
-
 	python train.py
 
 eval:
 	echo "## Model Metrics" > report.md
 	cat ./Results/metrics.txt >> report.md
 	
-	echo '\n## Confusion Metrics Plot' >> report.md
-	
+	echo '\n## Confusion Matrix Plot' >> report.md
 	echo '![Confusion Matrix](./Results/model_results.png)' >> report.md
 	
 	cml comment create report.md
-
-add-remote: 
-	git remote add space https://kingabzpro:$HF@huggingface.co/spaces/kingabzpro/<app>
-
-push-hub: 
-	git push --force https://kingabzpro:$HF@huggingface.co/spaces/kingabzpro/<app> main
-
-deploy: add-remote push-hub
 		
 update-branch:
-	git config --global user.name kingabzpro
-	git config --global user.email 1abid@duck.com
+	git config --global user.name "$USER_NAME"
+	git config --global user.email "$USER_EMAIL"
 	git commit -am "Update with new results"
 	git push --force origin HEAD:update
 
-all: install lint format deploy
+add-remote: 
+	git remote add space https://kingabzpro:$HF@huggingface.co/spaces/kingabzpro/Drug-Classification
+
+pull-push-hub: 
+	git pull origin update
+	git switch update
+	git push --force space update:main
+
+deploy: add-remote pull-push-hub
+
+all: install format train eval update-branch deploy

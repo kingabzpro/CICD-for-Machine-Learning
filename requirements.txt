@@ -2,6 +2,5 @@ pandas
 scikit-learn
 numpy
 matplotlib
-gradio
 skops
 black
