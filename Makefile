@@ -29,7 +29,8 @@ add-remote:
 pull-push-hub: 
 	git pull origin update
 	git switch update
-	git config --global lfs.contenttype 0
+	git lfs install
+	git lfs track "./Model/drug_pipeline.skops"
 	git push --force space main
 
 deploy: add-remote pull-push-hub
