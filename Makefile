@@ -29,7 +29,7 @@ add-remote:
 pull-push-hub: 
 	git pull origin update
 	git switch update
-	git push --force space update:main
+	git push --force space main
 
 deploy: add-remote pull-push-hub
 
