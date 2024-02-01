@@ -1,3 +1,5 @@
+include .env
+
 install:
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
@@ -18,8 +20,8 @@ eval:
 	cml comment create report.md
 		
 update-branch:
-	git config --global user.name "abid"
-	git config --global user.email "1abid@duck.com"
+	git config --global user.name "$USER_NAME"
+	git config --global user.email "$USER_EMAIL"
 	git commit -am "Update with new results"
 	git push --force origin HEAD:update
 
