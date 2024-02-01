@@ -23,8 +23,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 
 ## Pipeline
-cat_col = X.select_dtypes(include=["object", "bool"]).columns.tolist()
-num_col = X.select_dtypes(include=["int64", "float64"]).columns.tolist()
+cat_col = [1,2,3]
+num_col = [0,4]
 
 transform = ColumnTransformer(
     [
@@ -49,7 +49,7 @@ predictions = pipe.predict(X_test)
 accuracy = accuracy_score(y_test, predictions)
 f1 = f1_score(y_test, predictions, average="macro")
 
-print("Accuracy: ", str(round(accuracy, 2) * 100) + "%", "F1: ", round(f1, 2))
+print("Accuracy:", str(round(accuracy, 2) * 100) + "%", "F1:", round(f1, 2))
 
 
 ## Confusion Matrix Plot
