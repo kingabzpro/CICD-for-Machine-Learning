@@ -1,1 +1,2 @@
 Model/drug_pipeline.skops filter=lfs diff=lfs merge=lfs -text
+*.skops filter=lfs diff=lfs merge=lfs -text
