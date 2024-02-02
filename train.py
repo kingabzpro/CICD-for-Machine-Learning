@@ -14,8 +14,8 @@ drug_df = drug_df.sample(frac=1)
 ## Train Test Split
 from sklearn.model_selection import train_test_split
 
-X = drug_df.drop("Drug", axis=1)
-y = drug_df.Drug
+X = drug_df.drop("Drug", axis=1).values
+y = drug_df.Drug.values
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=125
