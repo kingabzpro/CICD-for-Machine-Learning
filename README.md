@@ -4,7 +4,9 @@
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kingabzpro/CICD-for-Machine-Learning/blob/main/notebook.ipynb)
 
 Beginner's Guide to Automating Training, Evaluation, and Deploying Models using GitHub Actions.
+## Pipeline
 
+![CICD](./asset/CICD-pipeline.png)
 
 ## Results
 | Model                  | Accuracy | F1 Score |
