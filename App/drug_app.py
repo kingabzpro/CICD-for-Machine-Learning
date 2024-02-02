@@ -11,11 +11,11 @@ def classifier(Age, Sex, BP, Cholesterol, Na_to_K):
 
 
 inputs = [
-    gr.Slider(15, 74, step=1, label="Age"),
-    gr.Radio(["M", "F"], label="Sex"),
-    gr.Radio(["HIGH", "LOW", "NORMAL"], label="Blood Pressure"),
-    gr.Radio(["HIGH", "NORMAL"], label="Cholesterol"),
-    gr.Slider(6.2, 38.2, step=0.1, label="Na_to_K"),
+    gr.Slider(15, 74, step=1, label="Age", default=30),
+    gr.Radio(["M", "F"], label="Sex", default="F"),
+    gr.Radio(["HIGH", "LOW", "NORMAL"], label="Blood Pressure", default="LOW"),
+    gr.Radio(["HIGH", "NORMAL"], label="Cholesterol", default="NORMAL"),
+    gr.Slider(6.2, 38.2, step=0.1, label="Na_to_K", default=13.2),
 ]
 outputs = [gr.Label(num_top_classes=5)]
 
