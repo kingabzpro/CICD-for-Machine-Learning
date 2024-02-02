@@ -36,7 +36,7 @@ transform = ColumnTransformer(
 pipe = Pipeline(
     steps=[
         ("preprocessing", transform),
-        ("model", RandomForestClassifier(n_estimators=100, random_state=125)),
+        ("model", RandomForestClassifier(n_estimators=10, random_state=125)),
     ]
 )
 
