@@ -5,8 +5,22 @@ pipe = sio.load("./Model/drug_pipeline.skops", trusted=True)
 
 
 def classifier(Age, Sex, BP, Cholesterol, Na_to_K):
-    pred_glass = pipe.predict([[Age, Sex, BP, Cholesterol, Na_to_K]])[0]
-    label = f"Predicted Glass label: **{pred_glass}**"
+    """
+    This function takes input features Age, Sex, BP, Cholesterol, and Na_to_K,
+    and uses a sklearn pipeline to make a prediction on the glass label.
+
+    Args:
+    Age (float): The age of the patient
+    Sex (str): The sex of the patient (M or F)
+    BP (str): The blood pressure of the patient (HIGH, NORMAL, or LOW)
+    Cholesterol (str): The cholesterol level of the patient (HIGH or NORMAL)
+    Na_to_K (float): The ratio of sodium to potassium in the patient's blood
+
+    Returns:
+    str: A string with the predicted drug label
+    """
+    pred_drug = pipe.predict([[Age, Sex, BP, Cholesterol, Na_to_K]])[0]
+    label = f"Predicted Drug label: **{pred_drug}**"
     return label
 
 
@@ -19,11 +33,12 @@ inputs = [
 ]
 outputs = [gr.Label(num_top_classes=5)]
 
-examples=[
-        [30, "M", "HIGH", "NORMAL", 15.4],
-        [35, "F", "LOW", "NORMAL", 8],
-        [50, "M", "HIGH", "HIGH", 34],
-    ]
+examples = [
+    [30, "M", "HIGH", "NORMAL", 15.4],
+    [35, "F", "LOW", "NORMAL", 8],
+    [50, "M", "HIGH", "HIGH", 34],
+]
+
 
 title = "Drug Classification"
 description = "Enter the details to correctly identify Drug type?"
