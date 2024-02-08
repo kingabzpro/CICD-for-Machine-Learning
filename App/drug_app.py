@@ -4,23 +4,23 @@ import skops.io as sio
 pipe = sio.load("./Model/drug_pipeline.skops", trusted=True)
 
 
-def classifier(Age, Sex, BP, Cholesterol, Na_to_K):
-    """
-    This function takes input features Age, Sex, BP, Cholesterol, and Na_to_K,
-    and uses a sklearn pipeline to make a prediction on the glass label.
+def predict_drug(age, sex, blood_pressure, cholesterol, na_to_k_ratio):
+    """Predict drug based on patient features.
 
     Args:
-    Age (float): The age of the patient
-    Sex (str): The sex of the patient (M or F)
-    BP (str): The blood pressure of the patient (HIGH, NORMAL, or LOW)
-    Cholesterol (str): The cholesterol level of the patient (HIGH or NORMAL)
-    Na_to_K (float): The ratio of sodium to potassium in the patient's blood
+        age (int): Age of patient
+        sex (int): Sex of patient (0 for female, 1 for male)
+        blood_pressure (int): Blood pressure level
+        cholesterol (int): Cholesterol level
+        na_to_k_ratio (float): Ratio of sodium to potassium in blood
 
     Returns:
-    str: A string with the predicted drug label
+        str: Predicted drug label
     """
-    pred_drug = pipe.predict([[Age, Sex, BP, Cholesterol, Na_to_K]])[0]
-    label = f"Predicted Drug label: **{pred_drug}**"
+    features = [age, sex, blood_pressure, cholesterol, na_to_k_ratio]
+    predicted_drug = pipe.predict([features])[0]
+
+    label = f"Predicted Drug: {predicted_drug}"
     return label
 
 
@@ -42,12 +42,25 @@ examples = [
 
 title = "Drug Classification"
 description = "Enter the details to correctly identify Drug type?"
+article = """<center>
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/kingabzpro/CICD-for-Machine-Learning)](https://github.com/kingabzpro/CICD-for-Machine-Learning)[![Follow me on HF](https://huggingface.co/datasets/huggingface/badges/resolve/main/follow-me-on-HF-md.svg)](https://huggingface.co/kingabzpro)
+
+**This app is a part of the Beginner's Guide to CI/CD for Machine Learning.**
+
+**It teaches how to automate training, evaluation, and deployment of models to Hugging Face using GitHub Actions.**
+
+[![DataCamp](https://img.shields.io/badge/Datacamp-05192D?style=for-the-badge&logo=datacamp&logoColor=65FF8F)](https://www.datacamp.com/portfolio/kingabzpro)
+
+</center>"""
 
 gr.Interface(
-    fn=classifier,
+    fn=predict_drug,
     inputs=inputs,
     outputs=outputs,
     examples=examples,
     title=title,
     description=description,
+    article=article,
+    theme=gr.themes.Soft(),
 ).launch()
