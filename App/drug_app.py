@@ -5,7 +5,7 @@ pipe = sio.load("./Model/drug_pipeline.skops", trusted=True)
 
 
 def predict_drug(age, sex, blood_pressure, cholesterol, na_to_k_ratio):
-    """Predict drug based on patient features.
+    """Predict drugs based on patient features.
 
     Args:
         age (int): Age of patient
@@ -49,8 +49,6 @@ article = """<center>
 **This app is a part of the Beginner's Guide to CI/CD for Machine Learning.**
 
 **It teaches how to automate training, evaluation, and deployment of models to Hugging Face using GitHub Actions.**
-
-[![DataCamp](https://img.shields.io/badge/Datacamp-05192D?style=for-the-badge&logo=datacamp&logoColor=65FF8F)](https://www.datacamp.com/portfolio/kingabzpro)
 
 </center>"""
 
