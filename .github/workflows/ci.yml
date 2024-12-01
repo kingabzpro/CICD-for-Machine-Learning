@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
-  
+
 permissions: write-all
 jobs:
   build:
@@ -13,16 +13,28 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: iterative/setup-cml@v2
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x' # Specify the required Python version
+
+      # Install black and other dependencies
       - name: Install Packages
-        run: make install
+        run: |
+          pip install black
+          make install
+      # Run formatting using Makefile
       - name: Format
         run: make format
+        # Train step
       - name: Train
         run: make train
+        # Evaluation step
       - name: Evaluation
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: make eval
+        # Update branch step
       - name: Update Branch
         env:
           NAME: ${{ secrets.USER_NAME }}
