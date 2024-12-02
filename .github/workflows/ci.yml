@@ -18,11 +18,6 @@ jobs:
         with:
           python-version: '3.x' # Specify the required Python version
 
-      # Install black and other dependencies
-      - name: Install Packages
-        run: |
-          pip install black
-          make install
       # Run formatting using Makefile
       - name: Format
         run: make format
