@@ -1,7 +1,24 @@
 import gradio as gr
 import skops.io as sio
+import warnings
+from sklearn.exceptions import InconsistentVersionWarning
 
-pipe = sio.load("./Model/drug_pipeline.skops", trusted=False)
+# Suppress the version warnings
+warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
+
+# Explicitly specify trusted types
+trusted_types = [
+    "sklearn.pipeline.Pipeline",
+    "sklearn.preprocessing.OneHotEncoder",
+    "sklearn.preprocessing.StandardScaler",
+    "sklearn.compose.ColumnTransformer",
+    "sklearn.preprocessing.OrdinalEncoder",
+    "sklearn.impute.SimpleImputer",
+    "sklearn.tree.DecisionTreeClassifier",
+    "sklearn.ensemble.RandomForestClassifier",
+    "numpy.dtype",
+]
+pipe = sio.load("./Model/drug_pipeline.skops", trusted=trusted_types)
 
 
 def predict_drug(age, sex, blood_pressure, cholesterol, na_to_k_ratio):
